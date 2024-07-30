@@ -1,0 +1,55 @@
+program: train_inference.py
+method: bayes
+metric:
+  goal: maximize
+  name: validation/mean_dice
+parameters:
+  initial_learning_rate:
+    min: 0.000001
+    max: 0.001
+  weight_decay:
+    distribution: log_uniform
+    min: 1e-7
+    max: 1e-4
+  dice_loss_smoothen_numerator:
+    value: 0 #values: [0,1e-5]
+  dice_loss_smoothen_denominator:
+    value: 1e-5 #values: [1e-5,1e-4]
+  data_RandAdjustContrastd:
+    values: [True,False]
+  data_RandGaussianNoised:
+    values: [True,False]
+  max_train_epochs:
+    value: 50
+  artifact_path:
+    value: 'wandb-healthcare/MONAI_101/DecathlonDataset_Task01_BrainTumour:v0'
+  batch_size:
+    value: 1
+  seed:
+    value: 0
+  roi_size:
+    value: [224, 224, 144]
+  num_workers:
+    value: 4
+  max_train_images_visualized:
+    value: 20
+  max_val_images_visualized:
+    value: 20
+  dice_loss_squared_prediction:
+    value: true
+  dice_loss_target_onehot:
+    value: false
+  dice_loss_apply_sigmoid:
+    value: true
+  validation_intervals:
+    value: 1
+  data_use_artifacts:
+    value: true
+  checkpoint_dir:
+    value: './checkpoints'
+  inference_roi_size:
+    value: [128, 128, 64]
+  max_prediction_images_visualized:
+    value: 20
+  mode:
+    value: 'train'

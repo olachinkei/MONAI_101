@@ -1,0 +1,24 @@
+seed: 0
+roi_size: [224, 224, 144]
+batch_size: 1
+num_workers: 4
+max_train_images_visualized: 20
+max_val_images_visualized: 20
+dice_loss_smoothen_numerator: 0
+dice_loss_smoothen_denominator: 1e-5
+data_RandAdjustContrastd: true
+data_RandGaussianNoised: true
+dice_loss_squared_prediction: true
+dice_loss_target_onehot: false
+dice_loss_apply_sigmoid: true
+initial_learning_rate: 1e-4
+weight_decay: 1e-5
+max_train_epochs: 5
+validation_intervals: 1
+data_use_artifacts: true
+artifact_path: 'wandb-healthcare/MONAI_101/DecathlonDataset_Task01_BrainTumour:v0'
+checkpoint_dir: './checkpoints'
+inference_roi_size: [128, 128, 64]
+max_prediction_images_visualized: 20
+mode: 'train' # 'train' or 'inference'
+model_artifact_path: 'wandb-healthcare/MONAI_101/pk5e607n-checkpoint:v4' #use for inference
