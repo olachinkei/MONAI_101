@@ -51,7 +51,7 @@ config = {
     "max_train_epochs": 50,
     "validation_intervals": 1,
     "dataset_dir_train": "./dataset/train",
-    "dataset_dir_val": "./dataset/val",
+    "dataset_dir_val": "./dataset/test",
     "checkpoint_dir": "./checkpoints",
     "inference_roi_size": (128, 128, 64),
     "max_prediction_images_visualized": 20
@@ -70,7 +70,7 @@ with wandb.init(entity="wandb-healthcare",
 
     # Create directories
     #os.makedirs(config.dataset_dir_train, exist_ok=False)
-    #os.makedirs(config.dataset_dir_val, exist_ok=False)
+    os.makedirs(config.dataset_dir_val, exist_ok=False)
     #os.makedirs(config.checkpoint_dir, exist_ok=False)
 
     ###################################################
@@ -175,7 +175,7 @@ with wandb.init(entity="wandb-healthcare",
         root_dir=config.dataset_dir_val,
         task="Task01_BrainTumour",
         transform=val_transform,
-        section="validation",
+        section="test",
         download=True,
         cache_rate=0.0,
         num_workers=4,
@@ -191,7 +191,7 @@ with wandb.init(entity="wandb-healthcare",
         name="Task01_BrainTumour_train")
     artifact.add_dir(
         local_path=config.dataset_dir_val,
-        name="Task01_BrainTumour_val")
+        name="Task01_BrainTumour_test")
     run.log_artifact(artifact)
 
     ###################################################
@@ -202,7 +202,7 @@ with wandb.init(entity="wandb-healthcare",
     # We would be using the segmentation mask overlay system to visualize our data volumes. 
     # To log segmentation masks in tables, we will need to provide a `wandb.Image`` object for each row in the table.
     # An example is provided in the Code snippet below:
-
+"""
     def log_data_samples_into_tables(
         sample_image: np.array,
         sample_label: np.array,
@@ -298,4 +298,4 @@ with wandb.init(entity="wandb-healthcare",
 
     # Log the table to your dashboard
     wandb.log({"Tumor-Segmentation-Data": table})
-
+"""

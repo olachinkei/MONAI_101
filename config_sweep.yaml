@@ -14,17 +14,19 @@ parameters:
   dice_loss_smoothen_numerator:
     value: 0 #values: [0,1e-5]
   dice_loss_smoothen_denominator:
-    value: 1e-5 #values: [1e-5,1e-4]
+    distribution: log_uniform
+    min: 1e-5
+    max: 1e-4
   data_RandAdjustContrastd:
-    values: [True,False]
+    values: [False]
   data_RandGaussianNoised:
-    values: [True,False]
+    values: [False]
   max_train_epochs:
-    value: 50
+    value: 30
+  batch_size:
+    value: 2
   artifact_path:
     value: 'wandb-healthcare/MONAI_101/DecathlonDataset_Task01_BrainTumour:v0'
-  batch_size:
-    value: 1
   seed:
     value: 0
   roi_size:

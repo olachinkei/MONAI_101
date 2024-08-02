@@ -6,8 +6,8 @@ max_train_images_visualized: 20
 max_val_images_visualized: 20
 dice_loss_smoothen_numerator: 0
 dice_loss_smoothen_denominator: 1e-5
-data_RandAdjustContrastd: true
-data_RandGaussianNoised: true
+data_RandAdjustContrastd: False
+data_RandGaussianNoised: False
 dice_loss_squared_prediction: true
 dice_loss_target_onehot: false
 dice_loss_apply_sigmoid: true
@@ -20,5 +20,5 @@ artifact_path: 'wandb-healthcare/MONAI_101/DecathlonDataset_Task01_BrainTumour:v
 checkpoint_dir: './checkpoints'
 inference_roi_size: [128, 128, 64]
 max_prediction_images_visualized: 20
-mode: 'train' # 'train' or 'inference'
-model_artifact_path: 'wandb-healthcare/MONAI_101/pk5e607n-checkpoint:v4' #use for inference
+mode: 'inference' # 'train' or 'inference'
+model_artifact_path: 'wandb-healthcare/MONAI_101/5lp0s3wz-checkpoint:v19' #use for inference
